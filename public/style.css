@@ -1,70 +1,114 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
+
 body {
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: #f8f8f8;
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
   font-family: "Roboto", sans-serif;
 }
-section.chat__section {
-  width: 800px;
-  max-width: 90%;
-  background: #fff;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
+
+
+section.chat__section {
+  width: 80%;
+  max-width: 600px;
+  background: #ecf0f1;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 40px;
+}
+
 .brand {
   padding: 20px;
-  background: #f1f1f1;
+  background: rgb(9, 206, 203);
+  color: #fff;
   display: flex;
   align-items: center;
 }
+
 .brand h1 {
   text-transform: uppercase;
-  font-size: 20px;
-  color: #444;
+  font-size: 24px;
   margin-left: 10px;
 }
+
 .message__area {
-  height: 500px;
+  height: 400px;
   padding: 16px;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  padding-top: 40px;
+  padding-top: 20px;
 }
+
 textarea {
-  width: 100%;
+  width: calc(100% - 40px);
   border: none;
-  padding: 20px;
+  padding: 16px;
   font-size: 16px;
   outline: none;
-  background: #fbfbfb;
+  background: #fff;
+  margin: 0 auto 20px;
+  border-radius: 8px;
+  resize: none;
+  transition: background 0.3s ease-in-out;
+  position: relative;
+  left: 1rem; /* Adjust the left spacing as needed */
+}
+
+textarea:focus {
+  background: #d5d8dc;
 }
 
 .message {
-  padding: 20px;
-  border-radius: 4px;
-  margin-bottom: 40px;
-  max-width: 300px;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  max-width: 70%;
   position: relative;
+  transition: transform 0.3s ease-in-out;
 }
+
 .incoming {
-  background: #8f8be8;
+  background: #3498db;
   color: #fff;
+  align-self: flex-start;
 }
+
 .outgoing {
-  background: #e9eafd;
-  color: #787986;
-  margin-left: auto;
+  background: #2ecc71;
+  color: #fff;
+  align-self: flex-end;
 }
+
+.message:hover {
+  transform: scale(1.05);
+}
+
 .message h4 {
   position: absolute;
   top: -20px;
